@@ -21,6 +21,28 @@ int min_number(int array[], int size) {
     return min_number;
 }
 
+void fibonacciSeries() {
+    //***Better my version (2 variables - 3 line)
+
+    int x=1,y=1;
+    for(int i = 0; i < 10; i++) {
+        y = x + y;
+        x = y - x;
+        printf("%d*\n",y);
+    }
+    //***Normal version (3 variables - 4 line)
+
+    /*int a=1,b=1,z;
+    for(int i = 0; i < 10; i++) {
+        z = a + b;
+        a = b;
+        b = z;
+        printf("%d \n",z);
+    }
+    */
+
+}
+
 void multiplicationTable() {
     int number = 1, multi = 1;
     bool check = true;
@@ -39,6 +61,28 @@ void multiplicationTable() {
     }
 }
 
+void doorController() {
+    int door[10] = {0};
+
+    int loopDoor,doorNumber;
+
+    for(loopDoor = 0; loopDoor < 10; loopDoor++) {
+        for(doorNumber = loopDoor; doorNumber < 10; doorNumber = doorNumber + loopDoor + 1) {
+            door[doorNumber] = !door[doorNumber];
+        }
+    }
+
+    printf("Open door numbers: ");
+
+    for(doorNumber = 0; doorNumber < 10; doorNumber++) {
+        if(door[doorNumber]) {
+            printf("%d ", doorNumber + 1);
+        }
+    }
+}
+
+
+
 int main(){
     
     int numbers[5] = {234,233,100,4,80};
@@ -48,5 +92,10 @@ int main(){
     
     multiplicationTable();
 
+    printf("Fibonacci \n ****************************\n");
+    fibonacciSeries();
+    printf("\n****************************\n");
+
+    doorController();
     return 0;
 }
