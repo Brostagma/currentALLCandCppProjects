@@ -1,7 +1,13 @@
-build: ../src/main.cpp
-	g++-11 ../src/main.cpp -o ../debug/main
+build: ../src/main.o
+	g++ ../src/main.o -o ../debug/main
 	../debug/main
-run: ../debug/main
+
+main.o: ../src/main.cpp
+	g++ -c ../src/main.cpp -o ../src/main.o
+
+run: 
 	../debug/main
-clean:
+
+clean: 
+	rm ../*/*.o
 	rm ../debug/main

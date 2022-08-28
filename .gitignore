@@ -511,5 +511,8 @@ Network Trash Folder
 Temporary Items
 .apdisk
 
+# Private
 debug/*
 app/*
+Engine
+Engine/*
