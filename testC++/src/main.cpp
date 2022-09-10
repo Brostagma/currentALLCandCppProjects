@@ -1,51 +1,50 @@
 #include <iostream>
 #include <array>
+#include <unistd.h>
+
+// MACRO
+#define stars printf("\n***********************************\n")
+#define PI 3.14
+#define Ram showRAMaddress
+// ENUMERATION
+enum weeks{Monday=1,Tuesday,Wednesday,Thursday,Friday,Saturday,Sunday};
+
 using namespace std;
 
-int degerDegistir(int *ptr, int eklenecekDeger) {
-    cout << "Değer değiştirildi.\n"
-     << "Önceki değer: " << *ptr << '\n'
-     << "Yeni değer: " << *ptr + eklenecekDeger << '\n';
-    return *ptr += eklenecekDeger;
+int changeValue(int *ptr, int input) {
+    cout << "Value changed.\n"
+     << "Previous value: " << *ptr << '\n'
+     << "New value: " << *ptr + input << '\n';
+    return *ptr += input;
 }
 
-int degis(int a) {
-    return a += 15;
+string addWord(string *ptr, string input) {
+    cout << "Word added.\n"
+     << "the Previous word: " << *ptr << '\n'
+     << "the New word: " << *ptr + " " + input << '\n';
+    return *ptr + " " + input;
 }
 
-string kelimeEkle(string *ptr, string eklenecekKelime) {
-    cout << "Kelime eklendi.\n"
-     << "Eklenmeden önceki kelime: " << *ptr << '\n'
-     << "Eklendikten sonraki kelime: " << *ptr + " " + eklenecekKelime << '\n';
-    return *ptr + " " + eklenecekKelime;
-}
-
-int arrayDegerDegistir(int ptr[], int degistirilecekAdres, int yeniDeger) {
+int arrayChangeValue(int ptr[], int addressToChange, int newValue) {
     cout << &ptr[0] << '\n';
-    return ptr[degistirilecekAdres] = yeniDeger;
+    return ptr[addressToChange] = newValue;
 }
 
-void fizikselBellekAdresiGoster(int *ptr) {
-    cout << "Fiziksel Bellek Adresi: " << ptr << '\n';
+void showRAMaddress(int *ptr) {
+    cout << "RAM Address: " << ptr << '\n';
 }
 
-void fizikselBellekAdresiGoster(string *ptr) {
-    cout << "Fiziksel Bellek Adresi: " << ptr << '\n';
+void showRAMaddress(string *ptr) {
+    cout << "RAM Address: " << ptr << '\n';
 }
 
-void fizikselBellekAdresiGoster(int ptr[], int gosterilecekAdres) {
-    cout << gosterilecekAdres << ": Array Sırasının Fiziksel Bellek Adresi: " << &ptr[gosterilecekAdres - 1] << '\n';
+void showRAMaddress(int ptr[], int input) {
+    cout << input << ": Array RAM Address: " << &ptr[input - 1] << '\n';
 }
 
-void ArrayTumSiraFizikselAdresiGoster(int ptr[],int uzunluk) {
-    for(int i = 0; i < uzunluk; i++) {
-        cout << &ptr[i] << '\n';
-    }
-}
-
-void fibonacciSeries(int lenght) {
+void fibonacciSeries(int length) {
     int x = 1,y = 1;
-    for(int i = 0; i < lenght; i++) {
+    for(int i = 0; i < length; i++) {
         y = x + y;
         x = y - x;
         cout << y << "*\n";
@@ -91,18 +90,18 @@ int binarySearch(int arr[], int begin, int end, int number) {
 int main() {
 
     // int a = 15;
-    // degerDegistir(&a, 100);
+    // changeValue(&a, 100);
     // cout << a << '\n'; 
-    // fizikselBellekAdresiGoster(&a);
+    // showRAMaddress(&a);
 
     // string name = "Hello";
-    // cout << kelimeEkle(&name,"World!") << '\n';
-    // fizikselBellekAdresiGoster(&name);
+    // cout << addWord(&name,"World!") << '\n';
+    // showRAMaddress(&name);
 
     // int array[5] = {1,2,3,4,5};
-    // cout << arrayDegerDegistir(array,2,15) << '\n';
-    // fizikselBellekAdresiGoster(array,3);
-    // ArrayTumSiraFizikselAdresiGoster(array,5);
+    // cout << arrayChangeValue(array,2,15) << '\n';
+    // showRAMaddress(array,3);
+    // showRAMaddress(array,5);
     // fibonacciSeries(10);
     // doorController();
 
@@ -129,8 +128,8 @@ int main() {
     }
     printf("\n");
     printf("\n");
-    long mapSizeY = 16;
-    long mapSizeX = 16;
+    int mapSizeY = 16;
+    int mapSizeX = 16;
     int mapBasicWorld[mapSizeY][mapSizeX];
     /*
                         {{0,0,0,0,0,2,2,2,0,0,0,0,0,1,1,1}
@@ -184,8 +183,8 @@ int main() {
             
         }
    }
-    for(int i = 0; i < 16; i++){
-        for(int j = 0; j < 16; j++){
+    for(int i = 0; i < mapSizeY; i++){
+        for(int j = 0; j < mapSizeX; j++){
             switch(mapBasicWorld[i][j]){
                 case 0:
                     cout<<"~"; //WATER
@@ -199,12 +198,25 @@ int main() {
                     break; 
                 case 3:
                     cout<<"v"; //VILLAGE
-                    break;
+                    break;ß
                     */
             }
+            usleep(5000); // unisted.h Library for waiting
         }
         cout<<'\n';
     }
     cout << "Map Size: " << mapSizeX << "*" << mapSizeY << " = " << (mapSizeX * mapSizeY) <<endl;
+
+    stars;
+    /*
+    printf("%d\n",Thursday);
+    printf("%d\n",Monday);
+
+    Ram(&sizeBiom);
+    int intArray[8] = {1,2,3,4,5,6,7,8};
+    Ram(intArray,3);
+    */
+
+   
     return 0;
 }
