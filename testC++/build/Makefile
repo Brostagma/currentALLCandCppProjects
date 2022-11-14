@@ -1,13 +1,15 @@
-build: ../src/main.o
-	g++ ../src/main.o -o ../debug/main
-	../debug/main
+all:build take run
+build:
+	g++ -c ../src/main.cpp -o ../lib/main.o 
+	g++ -c ../src/map.cpp -o ../lib/map.o
 
-main.o: ../src/main.cpp
-	g++ -c ../src/main.cpp -o ../src/main.o
+take:
+	g++ ../lib/main.o -o ../debug/main.out
+	g++ ../lib/main.o -o ../debug/main.exe
 
-run: 
-	../debug/main
+run:
+	../debug/main.out
 
 clean: 
 	rm ../*/*.o
-	rm ../debug/main
+	rm ../debug/*
