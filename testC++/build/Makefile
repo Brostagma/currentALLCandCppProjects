@@ -1,12 +1,12 @@
 .PHONY: clean
 
+all:build install clean run
+
 copyright: main.out.cpp
 
 main.out.cpp: ../src/main.cpp
 	echo "/* Copyright(C) 2023 Ahmet Emin - All Rights Reserved */" > ../debug/cpyr;
 	cat ../debug/cpyr > ../src/Copyright
-
-all:build install clean run
 
 build: ../src/main.cpp
 	g++ -c ../src/main.cpp -o ../lib/main.o 

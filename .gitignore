@@ -516,3 +516,7 @@ debug/*
 app/*
 Engine
 Engine/*
+cMakeTest
+cMakeTest/*
+myPlayArea
+myPlayArea/*
