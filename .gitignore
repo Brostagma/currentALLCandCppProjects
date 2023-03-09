@@ -520,3 +520,7 @@ cMakeTest
 cMakeTest/*
 myPlayArea
 myPlayArea/*
+main
+*.exe
+*.out
+*.o

@@ -1,6 +1,6 @@
 .PHONY: clean
 
-all:build install clean run
+all:build install run
 
 copyright: main.out.cpp
 
@@ -10,7 +10,7 @@ main.out.cpp: ../src/main.cpp
 
 build: ../src/main.cpp
 	g++ -c ../src/main.cpp -o ../lib/main.o 
-	g++ -c ../src/map.cpp -o ../lib/map.o
+	g++ -c ../src/map/map.cpp -o ../lib/map.o
 
 install:
 	g++ ../lib/main.o -o ../debug/main.out
@@ -20,4 +20,6 @@ run:
 	../debug/main.out
 
 clean: 
-	rm ../*/*.o
+	rm ../lib/*.o
+	rm ../debug/*.exe
+	rm ../debug/*.out

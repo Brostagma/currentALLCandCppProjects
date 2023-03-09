@@ -1,7 +1,7 @@
 #include <iostream>
 #include <array>
 #include <unistd.h>
-#include "map.cpp"
+#include "./map/map.cpp"
 
 // MACRO
 #define stars printf("\n***********************************\n")
